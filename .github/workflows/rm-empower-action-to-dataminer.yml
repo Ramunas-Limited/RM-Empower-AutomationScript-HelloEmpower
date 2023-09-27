@@ -25,3 +25,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Skyline DataMiner Deploy Action
+        # You may pin to the exact commit or the version.
+        # uses: SkylineCommunications/Skyline-DataMiner-Deploy-Action@5d9d2739772b3d52b9848ce738c5e04f36b6444f
+        uses: SkylineCommunications/Skyline-DataMiner-Deploy-Action@v1.0.29
+        with:
+          api-key: ${{ secrets.DATAMINER_DEPLOY_KEY }}
+          solution-path: RM-Empower.sln
+          artifact-name: EmpowerHelloWorld
+          version: 1.0.1
+          build-number: ${{ github.run_number }}
